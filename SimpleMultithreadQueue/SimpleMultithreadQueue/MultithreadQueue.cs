@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleMutithreadQueue {
+namespace SimpleMultithreadQueue {
 
 	/*
 	 * Добавляет элементы много потоков, принимает один
