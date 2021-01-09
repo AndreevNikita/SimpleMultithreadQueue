@@ -1,0 +1,6 @@
+C:\Users\Nick\Documents\GitHub\SimpleMultithreadQueue\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Debug\SimpleMultithreadQueue.dll
+C:\Users\Nick\Documents\GitHub\SimpleMultithreadQueue\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Debug\SimpleMultithreadQueue.pdb
+C:\Users\Nick\Documents\GitHub\SimpleMultithreadQueue\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\SimpleMultithreadQueue.csprojAssemblyReference.cache
+C:\Users\Nick\Documents\GitHub\SimpleMultithreadQueue\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\SimpleMultithreadQueue.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\GitHub\SimpleMultithreadQueue\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\SimpleMultithreadQueue.dll
+C:\Users\Nick\Documents\GitHub\SimpleMultithreadQueue\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\SimpleMultithreadQueue.pdb
