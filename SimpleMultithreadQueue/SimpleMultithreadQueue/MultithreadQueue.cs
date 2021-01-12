@@ -12,18 +12,18 @@ namespace SimpleMultithreadQueue {
 	 */
 	public class MultithreadQueue<T> : IEnumerable<T> {
 
-		private Queue<T> currentQueue; //Input queue
+		private Queue<T> activeQueue; //Input queue
 		private Queue<T> bufferQueue; //Output queue
 		public Queue<T> R_ReadyQueue { get => bufferQueue; } //Готовой называется очередь, которая уже изменяться не будет
 
 		public MultithreadQueue() {
-			currentQueue = new Queue<T>();
+			activeQueue = new Queue<T>();
 			bufferQueue = new Queue<T>();
 		}
 
 		public void Enqueue(T obj) {
-			lock(currentQueue) {
-				currentQueue.Enqueue(obj);
+			lock(activeQueue) {
+				activeQueue.Enqueue(obj);
 			}
 		}
 
@@ -31,8 +31,8 @@ namespace SimpleMultithreadQueue {
 
 		//Вспомогательный метод, меняющий местами входную очередь и опустошённую выходную
 		public void R_Swap() {
-			lock(currentQueue) {
-				swap(ref currentQueue, ref bufferQueue);
+			lock(activeQueue) {
+				swap(ref activeQueue, ref bufferQueue);
 			}
 		}
 
@@ -74,26 +74,36 @@ namespace SimpleMultithreadQueue {
 
 		//Вернуть все элементы, в объекте новой очереди, исключив из текущей
 		//(гораздо проще создать новую очередь и поменять местами входные и выходные (в текущей оказываются пустые очереди, в возвращаемой всё что было в текущей))
-		public MultithreadQueue<T> R_PopToNewQueue() {
+		public MultithreadQueue<T> R_PopToNewMultithreadQueue() {
 			MultithreadQueue<T> result = new MultithreadQueue<T>();
 			swap(ref bufferQueue, ref result.bufferQueue);
-			lock(currentQueue) {
-				swap(ref currentQueue, ref result.currentQueue);
+			lock(activeQueue) {
+				swap(ref activeQueue, ref result.activeQueue);
 			}
 			return result;
 		}
 
 		/*
-		 * В некоторых случаях проще смотреть, когда
+		 * Swap queues and returns buffer
 		 */
-		public Queue<T> R_PopReadyToNewQueue(bool swap = false) {
-			if(swap)
+		public Queue<T> R_PopAllToNewQueue() {
+			//Save buffer queue if is not empty
+			if(bufferQueue.Count != 0) { 
+				MultithreadQueue<T> popQueue = R_PopToNewMultithreadQueue();
+				foreach(T element in popQueue.activeQueue)
+					popQueue.bufferQueue.Enqueue(element);
+				return popQueue.bufferQueue;
+			} else { 
 				R_Swap();
 
-			Queue<T> result = bufferQueue;
-			bufferQueue = new Queue<T>();
-			return result;
+				Queue<T> result = bufferQueue;
+				bufferQueue = new Queue<T>();
+				return result;
+			}
+			
 		}
+
+
 
 		public IEnumerable<T> R_PopAll() { 
 			while(bufferQueue.Count != 0) { 
