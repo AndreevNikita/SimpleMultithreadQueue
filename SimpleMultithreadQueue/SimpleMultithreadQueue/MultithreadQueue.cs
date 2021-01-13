@@ -111,6 +111,16 @@ namespace SimpleMultithreadQueue {
 			bufferQueue = new Queue<T>();
 		}
 
+		public bool R_IsEmpty() { 
+			if(bufferQueue.Count != 0)
+				return false;
+			lock(activeQueue) { 
+				if(activeQueue.Count != 0)
+					return false;
+			}
+			return true;
+		}
+
 
 		public IEnumerable<T> R_PopAll() { 
 			while(bufferQueue.Count != 0) { 

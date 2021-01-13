@@ -19,5 +19,6 @@ Only reader's thread methods marked by prefix "R_"
 * `Queue<T> R_PopAllToNewQueue(bool swap = false)` - returns queue with all elements on the call time.
 * `IEnumerable<T> R_PopAll()` pops all elements from queue with enumerable (can be used in foreach cycle) and dequeue their
 * `void R_Clear()` clears *MultithreadQueue*
+* `bool R_IsEmpty` check if the MultithreadQueue is empty
 
 Also MultithreadQueue<T> implements IEnumerator<T> interface and can be used in foreach cycles (without elements dequeue)
