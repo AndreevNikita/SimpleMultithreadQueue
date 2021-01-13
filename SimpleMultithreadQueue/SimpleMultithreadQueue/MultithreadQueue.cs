@@ -103,6 +103,13 @@ namespace SimpleMultithreadQueue {
 			
 		}
 
+		public void R_Clear() { 
+			Queue<T> buffer = new Queue<T>();
+			lock(activeQueue) {
+				swap(ref activeQueue, ref buffer);
+			}
+			bufferQueue = new Queue<T>();
+		}
 
 
 		public IEnumerable<T> R_PopAll() { 
