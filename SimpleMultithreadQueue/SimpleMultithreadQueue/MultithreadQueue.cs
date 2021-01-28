@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SimpleMultithreadQueue {
@@ -22,18 +23,14 @@ namespace SimpleMultithreadQueue {
 		}
 
 		public void Enqueue(T obj) {
-			lock(activeQueue) {
-				activeQueue.Enqueue(obj);
-			}
+			activeQueue.Enqueue(obj);
 		}
 
 		/*		Методы ниже вызываются только читающим потоком		*/
 
 		//Вспомогательный метод, меняющий местами входную очередь и опустошённую выходную
 		public void R_Swap() {
-			lock(activeQueue) {
-				swap(ref activeQueue, ref bufferQueue);
-			}
+			bufferQueue = Interlocked.Exchange(ref activeQueue, bufferQueue);
 		}
 
 		//Удаляет элемент из непополняемой очереди
@@ -77,9 +74,7 @@ namespace SimpleMultithreadQueue {
 		public MultithreadQueue<T> R_PopToNewMultithreadQueue() {
 			MultithreadQueue<T> result = new MultithreadQueue<T>();
 			swap(ref bufferQueue, ref result.bufferQueue);
-			lock(activeQueue) {
-				swap(ref activeQueue, ref result.activeQueue);
-			}
+			result.activeQueue = Interlocked.Exchange(ref activeQueue, result.activeQueue);
 			return result;
 		}
 
@@ -104,20 +99,16 @@ namespace SimpleMultithreadQueue {
 		}
 
 		public void R_Clear() { 
-			Queue<T> buffer = new Queue<T>();
-			lock(activeQueue) {
-				swap(ref activeQueue, ref buffer);
-			}
+			activeQueue = new Queue<T>();
 			bufferQueue = new Queue<T>();
 		}
 
 		public bool R_IsEmpty() { 
 			if(bufferQueue.Count != 0)
 				return false;
-			lock(activeQueue) { 
-				if(activeQueue.Count != 0)
-					return false;
-			}
+			if(activeQueue.Count != 0) //Can be outdated, but it's for tick systems
+				return false;
+
 			return true;
 		}
 
