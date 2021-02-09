@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30309.148
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMultithreadQueue", "SimpleMultithreadQueue\SimpleMultithreadQueue.csproj", "{9BE69ACE-B0E7-4345-A87B-84A1DC8D9585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMultithreadQueue", "SimpleMultithreadQueue.csproj", "{F6A741DE-6B91-4259-8A86-D0320C6DFCEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9BE69ACE-B0E7-4345-A87B-84A1DC8D9585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9BE69ACE-B0E7-4345-A87B-84A1DC8D9585}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9BE69ACE-B0E7-4345-A87B-84A1DC8D9585}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9BE69ACE-B0E7-4345-A87B-84A1DC8D9585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A741DE-6B91-4259-8A86-D0320C6DFCEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A741DE-6B91-4259-8A86-D0320C6DFCEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A741DE-6B91-4259-8A86-D0320C6DFCEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A741DE-6B91-4259-8A86-D0320C6DFCEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B511FD21-F9D9-4098-AB69-D0D97F2E99CD}
+		SolutionGuid = {FA111F4C-0543-46F6-B293-B3BC88FAF3BC}
 	EndGlobalSection
 EndGlobal
