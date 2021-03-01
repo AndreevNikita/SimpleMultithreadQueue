@@ -72,7 +72,7 @@ namespace SimpleMultithreadQueue {
 
 		//Waits for a next element enqueue
 		//Might to continue if the queue is already empty
-		public void R_Wait() { 
+		private void R_Wait() { 
 			newElementSignal.WaitOne();
 		}
 
