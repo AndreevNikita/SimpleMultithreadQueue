@@ -16,14 +16,17 @@ namespace SimpleMultithreadQueue {
 		private Queue<T> activeQueue; //Input queue
 		private Queue<T> bufferQueue; //Output queue
 		public Queue<T> R_ReadyQueue { get => bufferQueue; } //Готовой называется очередь, которая уже изменяться не будет
+		private AutoResetEvent newElementSignal;
 
 		public MultithreadQueue() {
 			activeQueue = new Queue<T>();
 			bufferQueue = new Queue<T>();
+			newElementSignal = new AutoResetEvent(false);
 		}
 
 		public void Enqueue(T obj) {
 			activeQueue.Enqueue(obj);
+			newElementSignal.Set();
 		}
 
 		/*		Методы ниже вызываются только читающим потоком		*/
@@ -67,7 +70,23 @@ namespace SimpleMultithreadQueue {
 			return false;
 		}
 
+		//Waits for a next element enqueue
+		//Might to continue if the queue is already empty
+		public void R_Wait() { 
+			newElementSignal.WaitOne();
+		}
 
+		//Get next element or wait for a new one
+		[ObsoleteAttribute("R_Dequeue_Wait is an experemental method")]
+		public T R_Dequeue_Wait() {
+			T result;
+			R_Wait();
+			if(!R_Dequeue(out result)) { 
+				R_Wait();
+				R_Dequeue(out result);
+			}
+			return result;
+		}
 
 		//Вернуть все элементы, в объекте новой очереди, исключив из текущей
 		//(гораздо проще создать новую очередь и поменять местами входные и выходные (в текущей оказываются пустые очереди, в возвращаемой всё что было в текущей))
@@ -96,6 +115,25 @@ namespace SimpleMultithreadQueue {
 				return result;
 			}
 			
+		}
+
+		/*
+		 * Returns all elements or waits for new
+		 */
+		[ObsoleteAttribute("R_PopAllToNewQueue_Wait is an experemental method")]
+		public Queue<T> R_PopAllToNewQueue_Wait() {
+			R_Wait();
+			//Writer thread can enqueue new element here
+			Queue<T> result = R_PopAllToNewQueue();
+			//And call newElementSignal.Set() here
+			//I.E. result may be empty queue, then we have to wait again
+			if(result.Count == 0) { 
+				R_Wait();
+				//Writer thread can enqueue new element here
+				result = R_PopAllToNewQueue();
+				//And call newElementSignal.Set() here
+			}
+			return result;
 		}
 
 		public void R_Clear() { 
