@@ -16,9 +16,14 @@ Only reader's thread methods marked by prefix "R_"
 * `bool R_DequeueReady(out T nextObj, bool swapAutomatically = true)` - **nextObj** - next element in bufferQueue, **swapAutomatically** - flag to swap queues (returns element only from **bufferQueue** if the bufferQueue is empty, swaps queues and returns default and false)
 * `bool R_Dequeue(out T nextObj)` - deq dequeues next element (default) and returns success status
 * `MultithreadQueue<T> R_PopToNewQueue()` - returns new MultithreadQueue with all elements and clears current queues
-* `Queue<T> R_PopAllToNewQueue(bool swap = false)` - returns queue with all elements on the call time.
+* `Queue<T> R_PopAllToNewQueue()` - returns queue with all elements on the call time.
 * `IEnumerable<T> R_PopAll()` pops all elements from queue with enumerable (can be used in foreach cycle) and dequeue their
 * `void R_Clear()` clears *MultithreadQueue*
 * `bool R_IsEmpty` check if the MultithreadQueue is empty
+
+#### Experemental reader wait for new methods
+* `Queue<T> R_PopAllToNewQueue_Wait()` - returns all elements on the call time or waits for new elements if empty
+* `T R_Dequeue_Wait()` - get next element or wait for a new one
+* `R_Wait()` - wait for new element
 
 Also MultithreadQueue<T> implements IEnumerator<T> interface and can be used in foreach cycles (without elements dequeue)
