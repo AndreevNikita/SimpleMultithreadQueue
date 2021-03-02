@@ -24,6 +24,7 @@ Only reader's thread methods marked by prefix "R_"
 #### Experemental reader wait for new methods
 * `Queue<T> R_PopAllToNewQueue_Wait()` - returns all elements on the call time or waits for new elements if empty
 * `T R_Dequeue_Wait()` - get next element or wait for a new one
-* `R_Wait()` - wait for new element
+* `void R_Wait()` - wait for new element
+* `bool R_CheckMayHaveNew()` - returns *true* if queue can contain new element, never returns *false*, if queue isn't empty
 
 Also MultithreadQueue<T> implements IEnumerator<T> interface and can be used in foreach cycles (without elements dequeue)
