@@ -13,6 +13,7 @@ namespace SimpleMultithreadQueue {
 	 */
 	public class MultithreadQueue<T> : IEnumerable<T> {
 
+		private object activeQueueMutex = new object();
 		private Queue<T> activeQueue; //Input queue
 		private Queue<T> bufferQueue; //Output queue
 		public Queue<T> R_ReadyQueue { get => bufferQueue; } //Готовой называется очередь, которая уже изменяться не будет
@@ -27,7 +28,13 @@ namespace SimpleMultithreadQueue {
 		}
 
 		public void Enqueue(T obj) {
-			activeQueue.Enqueue(obj);
+			/*
+			 * Вот здесь может получить ссылку на activeQueue, далее сработал Interlocked.Exchange, далее Enqueue и мы кладём элемент в ушедшую очередь
+			 * Сделать lock?
+			 */
+			lock(activeQueueMutex) {
+				activeQueue.Enqueue(obj);
+			}
 			Interlocked.MemoryBarrier();
 			mayHaveNew = true;
 			newElementSignal.Set();
@@ -37,7 +44,9 @@ namespace SimpleMultithreadQueue {
 
 		//Вспомогательный метод, меняющий местами входную очередь и опустошённую выходную
 		public void R_Swap() {
-			bufferQueue = Interlocked.Exchange(ref activeQueue, bufferQueue);
+			lock(activeQueueMutex) {
+				Swap(ref activeQueue, ref bufferQueue);
+			}
 		}
 
 		//Удаляет элемент из непополняемой очереди
@@ -108,8 +117,10 @@ namespace SimpleMultithreadQueue {
 		public MultithreadQueue<T> R_PopToNewMultithreadQueue() {
 			R_ResetMayHaveNewFlag();
 			MultithreadQueue<T> result = new MultithreadQueue<T>();
-			swap(ref bufferQueue, ref result.bufferQueue);
-			result.activeQueue = Interlocked.Exchange(ref activeQueue, result.activeQueue);
+			Swap(ref bufferQueue, ref result.bufferQueue);
+			bufferQueue = result.activeQueue;
+			R_Swap();
+			result.activeQueue = bufferQueue;
 			return result;
 		}
 
@@ -230,7 +241,7 @@ namespace SimpleMultithreadQueue {
 
 		#endregion
 
-		public static void swap<TSwapType>(ref TSwapType a, ref TSwapType b) {
+		public static void Swap<TSwapType>(ref TSwapType a, ref TSwapType b) {
 			TSwapType buffer = a;
 			a = b;
 			b = buffer;
