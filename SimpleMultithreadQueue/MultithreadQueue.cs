@@ -85,8 +85,12 @@ namespace SimpleMultithreadQueue {
 
 		//Waits for a next element enqueue
 		//Might to continue if the queue is already empty
-		private void R_Wait() { 
-			newElementSignal.WaitOne();
+		public void R_Wait(int timeoutMs = -1) { 
+			newElementSignal.WaitOne(timeoutMs);
+		}
+
+		public void SkipWait() { 
+			newElementSignal.Set();
 		}
 
 		//Returns true if queue can contain new element, never returns false, if queue isn't empty
@@ -102,9 +106,9 @@ namespace SimpleMultithreadQueue {
 
 		//Get next element or wait for a new one
 		[ObsoleteAttribute("R_Dequeue_Wait is an experemental method")]
-		public T R_Dequeue_Wait() {
+		public T R_Dequeue_Wait(int timeoutMs = -1) {
 			T result;
-			R_Wait();
+			R_Wait(timeoutMs);
 			if(!R_Dequeue(out result)) { 
 				R_Wait();
 				R_Dequeue(out result);
@@ -149,7 +153,7 @@ namespace SimpleMultithreadQueue {
 		 * Returns all elements or waits for new
 		 */
 		[ObsoleteAttribute("R_PopAllToNewQueue_Wait is an experemental method")]
-		public Queue<T> R_PopAllToNewQueue_Wait() {
+		public Queue<T> R_PopAllToNewQueue_Wait(int timeoutMs = -1) {
 			Queue<T> result;
 
 			if(R_CheckMayHaveNew()) { 
@@ -158,7 +162,7 @@ namespace SimpleMultithreadQueue {
 					return result;
 			}
 
-			R_Wait();
+			R_Wait(timeoutMs);
 			//Writer thread can enqueue new element here
 			return R_PopAllToNewQueue();
 			//And call newElementSignal.Set() here
