@@ -85,7 +85,7 @@ namespace SimpleMultithreadQueue {
 
 		//Waits for a next element enqueue
 		//Might to continue if the queue is already empty
-		public void R_Wait(int timeoutMs = -1) { 
+		public void Wait(int timeoutMs = -1) { 
 			newElementSignal.WaitOne(timeoutMs);
 		}
 
@@ -108,9 +108,9 @@ namespace SimpleMultithreadQueue {
 		[ObsoleteAttribute("R_Dequeue_Wait is an experemental method")]
 		public T R_Dequeue_Wait(int timeoutMs = -1) {
 			T result;
-			R_Wait(timeoutMs);
+			Wait(timeoutMs);
 			if(!R_Dequeue(out result)) { 
-				R_Wait();
+				Wait();
 				R_Dequeue(out result);
 			}
 			return result;
@@ -162,7 +162,7 @@ namespace SimpleMultithreadQueue {
 					return result;
 			}
 
-			R_Wait(timeoutMs);
+			Wait(timeoutMs);
 			//Writer thread can enqueue new element here
 			return R_PopAllToNewQueue();
 			//And call newElementSignal.Set() here
