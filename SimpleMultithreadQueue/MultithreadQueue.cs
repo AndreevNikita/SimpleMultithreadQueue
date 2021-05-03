@@ -20,6 +20,9 @@ namespace SimpleMultithreadQueue {
 		private bool mayHaveNew;
 		private AutoResetEvent newElementSignal;
 
+		[ObsoleteAttribute("An experemental property")]
+		public WaitHandle NewElementWaiter { get => newElementSignal; }
+
 		public MultithreadQueue() {
 			activeQueue = new Queue<T>();
 			bufferQueue = new Queue<T>();

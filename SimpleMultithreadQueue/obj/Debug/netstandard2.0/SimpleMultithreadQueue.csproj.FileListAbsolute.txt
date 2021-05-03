@@ -16,3 +16,12 @@ C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.csproj.CoreCompileInputs.cache
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.dll
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.pdb
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Debug\netstandard2.0\SimpleMultithreadQueue.deps.json
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Debug\netstandard2.0\SimpleMultithreadQueue.dll
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Debug\netstandard2.0\SimpleMultithreadQueue.pdb
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.csprojAssemblyReference.cache
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.AssemblyInfoInputs.cache
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.AssemblyInfo.cs
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.csproj.CoreCompileInputs.cache
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.dll
+D:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Debug\netstandard2.0\SimpleMultithreadQueue.pdb

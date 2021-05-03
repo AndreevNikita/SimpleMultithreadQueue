@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj": {}
+    "D:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj": {
+    "D:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj",
+        "projectUniqueName": "D:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj",
         "projectName": "SimpleMultithreadQueue",
-        "projectPath": "C:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj",
+        "projectPath": "D:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\SimpleMultithreadQueue.csproj",
         "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\obj\\",
+        "outputPath": "D:\\Users\\Nick\\Documents\\repos\\SimpleMultithreadQueue\\SimpleMultithreadQueue\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nick\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -57,7 +57,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
