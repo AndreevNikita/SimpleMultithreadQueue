@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SimpleMultithreadQueue</id>
+    <version>1.0.0</version>
+    <authors>Nikita Andreev</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <description>Package Description</description>
+    <copyright>Nikita Andreev</copyright>
+    <tags>c#, multithreadqueue</tags>
+    <repository url="https://github.com/AndreevNikita/SimpleMultithreadQueue" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Release\netstandard2.0\SimpleMultithreadQueue.dll" target="lib\netstandard2.0\SimpleMultithreadQueue.dll" />
+    <file src="C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\LICENSE" target="LICENSE" />
+  </files>
+</package>

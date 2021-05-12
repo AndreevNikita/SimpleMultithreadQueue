@@ -19,6 +19,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyProductAttribute("SimpleMultithreadQueue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpleMultithreadQueue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/AndreevNikita/SimpleMultithreadQueue")]
 
 // Создано классом WriteCodeFragment MSBuild.
 
