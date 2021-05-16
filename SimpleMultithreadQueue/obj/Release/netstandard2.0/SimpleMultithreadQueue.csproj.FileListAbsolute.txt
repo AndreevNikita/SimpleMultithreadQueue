@@ -1,9 +1,9 @@
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Release\netstandard2.0\SimpleMultithreadQueue.deps.json
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Release\netstandard2.0\SimpleMultithreadQueue.dll
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\bin\Release\netstandard2.0\SimpleMultithreadQueue.pdb
-C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.csprojAssemblyReference.cache
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.AssemblyInfoInputs.cache
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.AssemblyInfo.cs
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.csproj.CoreCompileInputs.cache
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.dll
 C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.pdb
+C:\Users\Nick\Documents\repos\SimpleMultithreadQueue\SimpleMultithreadQueue\obj\Release\netstandard2.0\SimpleMultithreadQueue.csprojAssemblyReference.cache

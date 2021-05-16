@@ -2,13 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>c#, multithreadqueue</PackageTags>
     <Authors>Nikita Andreev</Authors>
     <Copyright>Nikita Andreev</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/AndreevNikita/SimpleMultithreadQueue</RepositoryUrl>
+    <Description>Queue for multithread programs with one queue reader and several writers</Description>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>+ nuget description</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/AndreevNikita/SimpleMultithreadQueue</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
