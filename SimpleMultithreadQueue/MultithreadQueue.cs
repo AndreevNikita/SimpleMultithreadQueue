@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SimpleMultithreadQueue {
+namespace SimpleMultithreadQueue
+{
 
 	/*
 	 * Добавляет элементы много потоков, принимает один
 	 */
-	public class MultithreadQueue<T> : IEnumerable<T> {
+	public partial class MultithreadQueue<T> : IEnumerable<T> {
 
 		private object activeQueueMutex = new object();
 		private Queue<T> activeQueue; //Input queue
@@ -23,11 +22,13 @@ namespace SimpleMultithreadQueue {
 		[ObsoleteAttribute("An experemental property")]
 		public WaitHandle NewElementWaiter { get => newElementSignal; }
 
+
 		public MultithreadQueue() {
 			activeQueue = new Queue<T>();
 			bufferQueue = new Queue<T>();
 			newElementSignal = new AutoResetEvent(false);
 			mayHaveNew = false;
+			newElementWaitCompletionSource = new TaskCompletionSource<byte>();
 		}
 
 		public void Enqueue(T obj) {
@@ -41,6 +42,7 @@ namespace SimpleMultithreadQueue {
 			Interlocked.MemoryBarrier();
 			mayHaveNew = true;
 			newElementSignal.Set();
+			newElementWaitCompletionSource.TrySetResult(0);
 		}
 
 		/*		Методы ниже вызываются только читающим потоком		*/
@@ -94,6 +96,7 @@ namespace SimpleMultithreadQueue {
 
 		public void SkipWait() { 
 			newElementSignal.Set();
+			newElementWaitCompletionSource.TrySetResult(0);
 		}
 
 		//Returns true if queue can contain new element, never returns false, if queue isn't empty
@@ -111,9 +114,8 @@ namespace SimpleMultithreadQueue {
 		[ObsoleteAttribute("R_Dequeue_Wait is an experemental method")]
 		public T R_Dequeue_Wait(int timeoutMs = -1) {
 			T result;
-			Wait(timeoutMs);
 			if(!R_Dequeue(out result)) { 
-				Wait();
+				Wait(timeoutMs);
 				R_Dequeue(out result);
 			}
 			return result;

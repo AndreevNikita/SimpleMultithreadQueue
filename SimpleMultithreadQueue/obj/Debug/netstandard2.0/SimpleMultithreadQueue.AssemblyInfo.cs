@@ -11,13 +11,16 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SimpleMultithreadQueue")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Nikita Andreev")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Nikita Andreev")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Queue for multithread programs with one queue reader and several writers")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimpleMultithreadQueue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpleMultithreadQueue")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/AndreevNikita/SimpleMultithreadQueue")]
 
 // Создано классом WriteCodeFragment MSBuild.
 
