@@ -26,6 +26,11 @@ Only reader's thread methods marked by prefix "R_"
 * `T R_Dequeue_Wait(int timoutMs = -1)` - get next element or wait for a new one. **timoutMs** = -1 is infinity time to wait
 * `bool R_CheckMayHaveNew()` - returns *true* if queue can contain new element, never returns *false*, if queue isn't empty
 * `void Wait(int timoutMs = -1)` - wait for new element. **timoutMs** = -1 is infinity time to wait
-* `public WaitHandle NewElementWaiter { get; }` - property to get new element WaitHandle
+* `WaitHandle NewElementWaiter { get; }` - property to get new element WaitHandle
+
+#### Experemental asynchrnous methods
+* `async Task R_WaitAsync()` - asynchrnously waits for a new element
+* `async Task<T> R_Dequeue_WaitAsync()` - get next element or asynchrnously wait for a new one. 
+* `async Task<Queue<T>> R_PopAllToNewQueue_WaitAsync()` - returns all elements on the call time or waits for new elements if empty asynchrnously
 
 Also MultithreadQueue<T> implements IEnumerator<T> interface and can be used in foreach cycles (without elements dequeue)

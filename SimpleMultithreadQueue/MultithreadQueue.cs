@@ -16,7 +16,7 @@ namespace SimpleMultithreadQueue
 		private Queue<T> activeQueue; //Input queue
 		private Queue<T> bufferQueue; //Output queue
 		public Queue<T> R_ReadyQueue { get => bufferQueue; } //Готовой называется очередь, которая уже изменяться не будет
-		private bool mayHaveNew;
+		private volatile bool mayHaveNew;
 		private AutoResetEvent newElementSignal;
 
 		[ObsoleteAttribute("An experemental property")]
@@ -107,7 +107,6 @@ namespace SimpleMultithreadQueue
 
 		private void R_ResetMayHaveNewFlag() { 
 			mayHaveNew = false;
-			Interlocked.MemoryBarrier();
 		}
 
 		//Get next element or wait for a new one
